@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="nprogress">
     <router-view/>
   </div>
 </template>
@@ -15,5 +15,8 @@ export default {
   height:100%;
   margin:0;
   padding:0
+}
+.nprpgress{
+    background: green !important;
 }
 </style>
