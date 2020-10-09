@@ -194,7 +194,7 @@ export default{
       const res = await this.$http.get('users', {
         params: this.queryInfo
       })
-      // console.log(res)
+      console.log(res)
       const {meta: {status, msg}, data: {users, total}} = res.data
       if (status === 200) {
         this.userList = users

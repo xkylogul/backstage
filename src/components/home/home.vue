@@ -66,7 +66,7 @@ export default {
   },
   created () {
     this.getMenuList()
-    this.token = window.sessionStorage.getItem('token')
+    this.activePath = window.sessionStorage.getItem('activePath')
   },
   methods: {
     quit () {
@@ -79,7 +79,7 @@ export default {
       // this.$http.defaults.headers.common['Authorization'] = AUTH_TOKEN // 设置请求头token权限
       const res = await this.$http.get('menus')
       this.menulist = res.data.data
-      if (res.data.meta.status !== 200) return this.$message.error(res.meta.msg)
+      if (res.data.meta.status !== 200) { return this.$message.error(res.meta.msg) }
       console.log(res)
     },
     // 点击按钮，切换菜单的折叠与展开
@@ -87,9 +87,8 @@ export default {
       this.isCollapse = !this.isCollapse
     },
     // 保存链接的激活状态
-    saveNavState (token) {
-      window.sessionStorage.setItem('token', token)
-      this.token = token
+    saveNavState (activePath) {
+      window.sessionStorage.setItem('activePath', activePath)
     }
   }
 }

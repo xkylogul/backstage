@@ -10,7 +10,7 @@ MyHttpServer.install = (Vue) => {
     console.log('拦截器触发')
     if (config.url !== 'login') {
       NProgress.start()
-      const AUTH_TOKEN = window.localStorage.getItem('token')
+      const AUTH_TOKEN = window.sessionStorage.getItem('token')
       config.headers.common['Authorization'] = AUTH_TOKEN // 设置请求头token权限
     }
     return config
